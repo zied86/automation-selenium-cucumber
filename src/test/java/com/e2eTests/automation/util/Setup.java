@@ -34,14 +34,13 @@ public class Setup {
 		if(scenario.isFailed()) {
 			try {
 				scenario.write("Current page URL is" +driver.getCurrentUrl());
-				byte [] screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+			byte [] screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
 				scenario.embed(screenshot, "image/png");
 			}catch (WebDriverException somePlatfomeDontSupportSreenshots) {
 				System.err.println(somePlatfomeDontSupportSreenshots.getMessage());
 
 			} 
 		}
-
 		driver.quit();
 	}
 
